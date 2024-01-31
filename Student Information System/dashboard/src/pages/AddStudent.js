@@ -86,7 +86,7 @@ Middlename: ${values.middlename}
 Course: ${values.course}
 Year: ${values.year}
         `)
-                setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
+                // setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
             }
         } catch (error) {
             console.log(error)
@@ -102,8 +102,8 @@ Year: ${values.year}
                     onSubmit={handleSubmit}
                 >
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
-
                     <TextField
+                   
                         inputMode='numeric'
                         value={values.id}
                         onChange={handleInputId}
@@ -153,8 +153,6 @@ Year: ${values.year}
                     >
                         ADD STUDENT
                     </Button>
-
-
                 </form>
 
             </div>
