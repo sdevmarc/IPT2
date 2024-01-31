@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Sidebar from './Sidebar'
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 const Demo = () => {
     const [car, setCar] = useState({
@@ -51,10 +52,11 @@ const Demo = () => {
     }
 
     const handleSubmit = () => {
-        console.log(`Brand: ${car.brand}`)
-        console.log(`Model: ${car.model}`)
-        console.log(`Color: ${car.color}`)
-        console.log(`Year: ${car.year}`)
+        console.log(`
+Brand: ${car.brand}
+Model: ${car.model}
+Color: ${car.color}
+Year: ${car.year}`)
     }
 
     return (
@@ -78,7 +80,12 @@ const Demo = () => {
                         onChange={handleYear}
                         label="Year"
                         variant="outlined" />
-                    <button onClick={handleSubmit}>Submit</button>
+                    <Button
+                        onClick={handleSubmit}
+                        variant="contained"
+                    >
+                        Submit
+                    </Button>
                 </div>
             </div>
 
