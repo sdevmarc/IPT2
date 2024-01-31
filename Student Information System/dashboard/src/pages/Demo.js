@@ -57,6 +57,7 @@ Brand: ${car.brand}
 Model: ${car.model}
 Color: ${car.color}
 Year: ${car.year}`)
+        setCar({ ...car, brand: '', model: '', color: '', year: '', })
     }
 
     return (
@@ -65,18 +66,22 @@ Year: ${car.year}`)
                 <Sidebar />
                 <div className="w-[20%] h-screen flex flex-col justify-center items-center gap-9 p-4">
                     <TextField
+                        value={car.brand}
                         onChange={handleBrand}
                         label="Brand"
                         variant="outlined" />
                     <TextField
+                        value={car.model}
                         onChange={handleModel}
                         label="Model"
                         variant="outlined" />
                     <TextField
+                        value={car.color}
                         onChange={handleColor}
                         label="Color"
                         variant="outlined" />
                     <TextField
+                        value={car.year}
                         onChange={handleYear}
                         label="Year"
                         variant="outlined" />
