@@ -10,11 +10,6 @@ const Demo = () => {
         year: ''
     })
 
-    // const handleSetCar = (e) => {
-    //     const { brand, model, color, year } = e.target.value
-    //     setCar({ ...car, brand: brand, model: model, color: color, year: year })
-    // }
-
     const handleBrand = (e) => {
         try {
             const brand = e.target.value
@@ -66,7 +61,7 @@ const Demo = () => {
         <>
             <div className="flex">
                 <Sidebar />
-                <div className="w-[20%] h-screen flex flex-col justify-center items-center p-4">
+                <div className="w-[20%] h-screen flex flex-col justify-center items-center gap-9 p-4">
                     <TextField
                         onChange={handleBrand}
                         label="Brand"

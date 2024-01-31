@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
+import CodeIcon from '@mui/icons-material/Code';
 
 const Sidebar = () => {
     const values =
         [
             { id: 1, link: '/', icon: <HomeIcon />, name: "Home" },
             { id: 2, link: '/addstudent', icon:  <InfoIcon />, name: "Add Student" },
-            { id: 2, link: '/demo', icon: <InfoIcon />, name: "Demo" }
+            { id: 2, link: '/demo', icon: <CodeIcon />, name: "Demo" }
         ]
     return (
         <>
