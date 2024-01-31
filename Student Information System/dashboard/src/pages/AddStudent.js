@@ -67,8 +67,9 @@ const AddStudent = () => {
         }
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         try {
+            e.preventDefault()
             if (
                 values.id === '' ||
                 values.firstname === '' ||
@@ -76,7 +77,6 @@ const AddStudent = () => {
                 values.middlename === '' ||
                 values.course === '' ||
                 values.year === '') {
-                alert('Please fill in the empty fields')
             } else {
                 console.log(`
 ID Number: ${values.id}
@@ -97,9 +97,14 @@ Year: ${values.year}
         <>
             <div className="w-full h-screen flex">
                 <Sidebar />
-                <div className="h-full flex flex-col justify-center p-4 gap-4">
+                <form
+                    className="h-full flex flex-col justify-center p-4 gap-4"
+                    onSubmit={handleSubmit}
+                >
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
+
                     <TextField
+                        inputMode='numeric'
                         value={values.id}
                         onChange={handleInputId}
                         id="outlined-basic"
@@ -118,7 +123,8 @@ Year: ${values.year}
                         onChange={handleInputLastname}
                         id="outlined-basic"
                         label="Last Name"
-                        variant="outlined" />
+                        variant="outlined"
+                        required />
                     <TextField
                         value={values.middlename}
                         onChange={handleInputMiddlename}
@@ -138,14 +144,18 @@ Year: ${values.year}
                         onChange={handleInputYear}
                         id="outlined-basic"
                         label="Year"
-                        variant="outlined" />
+                        variant="outlined"
+                        required />
                     <Button
+                        type='submit'
                         onClick={handleSubmit}
                         variant="contained"
                     >
                         ADD STUDENT
                     </Button>
-                </div>
+
+
+                </form>
 
             </div>
         </>
