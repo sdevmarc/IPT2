@@ -70,11 +70,11 @@ const AddStudent = () => {
     const handleSubmit = () => {
         try {
             if (
-                values.id === '',
-                values.firstname === '',
-                values.lastname === '',
-                values.middlename === '',
-                values.course === '',
+                values.id === '' ||
+                values.firstname === '' ||
+                values.lastname === '' ||
+                values.middlename === '' ||
+                values.course === '' ||
                 values.year === '') {
                 alert('Please fill in the empty fields')
             } else {
@@ -86,6 +86,7 @@ Middlename: ${values.middlename}
 Course: ${values.course}
 Year: ${values.year}
         `)
+                setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
             }
         } catch (error) {
             console.log(error)
@@ -99,36 +100,41 @@ Year: ${values.year}
                 <div className="h-full flex flex-col justify-center p-4 gap-4">
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
                     <TextField
-                        name='id'
+                        value={values.id}
                         onChange={handleInputId}
                         id="outlined-basic"
                         label="ID Number"
                         variant="outlined"
                         required />
                     <TextField
+                        value={values.firstname}
                         onChange={handleInputFirstname}
                         id="outlined-basic"
                         label="First Name"
                         variant="outlined"
                         required />
                     <TextField
+                        value={values.lastname}
                         onChange={handleInputLastname}
                         id="outlined-basic"
                         label="Last Name"
                         variant="outlined" />
                     <TextField
+                        value={values.middlename}
                         onChange={handleInputMiddlename}
                         id="outlined-basic"
                         label="Middle Name"
                         variant="outlined"
                         required />
                     <TextField
+                        value={values.course}
                         onChange={handleInputCourse}
                         id="outlined-basic"
                         label="Course"
                         variant="outlined"
                         required />
                     <TextField
+                        value={values.year}
                         onChange={handleInputYear}
                         id="outlined-basic"
                         label="Year"
