@@ -24,7 +24,7 @@ app.post('/addstudent', (req, res) => {
 
     existingData.push(id, lastname, firstname, middlename, course, year)
 
-    fs.writeFileSync('students.json', JSON.stringify(existingData, null,2))
+    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2))
     res.json({ success: true, message: 'Student added successfully' })
 
 })
