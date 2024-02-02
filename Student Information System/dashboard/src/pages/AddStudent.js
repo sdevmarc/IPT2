@@ -4,6 +4,7 @@ import Sidebar from './Sidebar';
 import Button from '@mui/material/Button';
 
 const AddStudent = () => {
+
     const [values, setValues] = useState({
         id: '',
         firstname: '',
@@ -12,6 +13,34 @@ const AddStudent = () => {
         course: '',
         year: ''
     })
+
+    const handleAddStudent = async () => {
+        try {
+            const response = await fetch('http://localhost:1337/addstudent', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values)
+            })
+
+            const result = await response.json()
+            console.log(result)
+
+            if (result.success) {
+                setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
+                alert(result.message)
+            } else {
+                alert('Failed to add student. Please try again')
+            }
+        } catch (error) {
+            console.error('Error adding studentL ', error)
+            console.log(`Error: ${error}`)
+        }
+    }
+
+
+
 
     const handleInputId = (e) => {
         try {
@@ -103,7 +132,7 @@ Year: ${values.year}
                 >
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
                     <TextField
-                   
+
                         inputMode='numeric'
                         value={values.id}
                         onChange={handleInputId}
