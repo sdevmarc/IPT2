@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-const  bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const fs = require('fs')
 const cors = require('cors')
 
@@ -13,8 +13,20 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addstudent', (req, res) => {
-    const { id, lastmame, firstname, middlename, course, year } = req.body
-    res.send({ result: 'Success' })
+    const { id, lastname, firstname, middlename, course, year } = req.body
+
+    let existingData = []
+    try {
+        existingData = JSON.parse(fs.readFileSync('students.json'))
+    } catch (error) {
+        // res.json({ Error: error })
+    }
+
+    existingData.push(id, lastname, firstname, middlename, course, year)
+
+    fs.writeFileSync('students.json', JSON.stringify(existingData, null,2))
+    res.json({ success: true, message: 'Student added successfully' })
+
 })
 
 

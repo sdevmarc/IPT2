@@ -4,7 +4,6 @@ import Sidebar from './Sidebar';
 import Button from '@mui/material/Button';
 
 const AddStudent = () => {
-
     const [values, setValues] = useState({
         id: '',
         firstname: '',
@@ -14,7 +13,8 @@ const AddStudent = () => {
         year: ''
     })
 
-    const handleAddStudent = async () => {
+    const handleAddStudent = async (e) => {
+        e.preventDefault()
         try {
             const response = await fetch('http://localhost:1337/addstudent', {
                 method: 'POST',
@@ -96,31 +96,31 @@ const AddStudent = () => {
         }
     }
 
-    const handleSubmit = (e) => {
-        try {
-            e.preventDefault()
-            if (
-                values.id === '' ||
-                values.firstname === '' ||
-                values.lastname === '' ||
-                values.middlename === '' ||
-                values.course === '' ||
-                values.year === '') {
-            } else {
-                console.log(`
-ID Number: ${values.id}
-Firstname: ${values.firstname}
-Lastname: ${values.lastname}
-Middlename: ${values.middlename}
-Course: ${values.course}
-Year: ${values.year}
-        `)
-                // setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
-            }
-        } catch (error) {
-            console.log(error)
-        }
-    }
+//     const handleSubmit = (e) => {
+//         try {
+//             e.preventDefault()
+//             if (
+//                 values.id === '' ||
+//                 values.firstname === '' ||
+//                 values.lastname === '' ||
+//                 values.middlename === '' ||
+//                 values.course === '' ||
+//                 values.year === '') {
+//             } else {
+//                 console.log(`
+// ID Number: ${values.id}
+// Firstname: ${values.firstname}
+// Lastname: ${values.lastname}
+// Middlename: ${values.middlename}
+// Course: ${values.course}
+// Year: ${values.year}
+//         `)
+//                 // setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
+//             }
+//         } catch (error) {
+//             console.log(error)
+//         }
+//     }
 
     return (
         <>
@@ -128,7 +128,7 @@ Year: ${values.year}
                 <Sidebar />
                 <form
                     className="h-full flex flex-col justify-center p-4 gap-4"
-                    onSubmit={handleSubmit}
+                    onSubmit={handleAddStudent}
                 >
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
                     <TextField
@@ -177,7 +177,6 @@ Year: ${values.year}
                         required />
                     <Button
                         type='submit'
-                        onClick={handleSubmit}
                         variant="contained"
                     >
                         ADD STUDENT
