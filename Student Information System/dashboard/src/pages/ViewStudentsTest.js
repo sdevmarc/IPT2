@@ -26,10 +26,6 @@ const ViewStudentsTest = () => {
             })
     }, [])
 
-    const rows = students;
-   
-
-
     return (
         <>
             <div className="flex">
@@ -42,7 +38,7 @@ const ViewStudentsTest = () => {
                             >View Students</h1>
     
                                 <DataGrid
-                                    rows={rows}
+                                    rows={students}
                                     columns={columns}
                                     initialState={{
                                         pagination: {
@@ -55,18 +51,7 @@ const ViewStudentsTest = () => {
 
 
                         </div>
-
                     </div>
-                    {/* <ul>
-                        {students.map((student) => (
-                            <li
-                                className=''
-                                key={student.id}
-                            >
-                                {student.firstname}
-                            </li>
-                        ))}
-                    </ul> */}
                 </div>
             </div >
         </>
