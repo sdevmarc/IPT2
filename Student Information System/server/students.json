@@ -1,0 +1,58 @@
+[
+ {
+  "id": "1",
+  "firstname": "Marc Edison",
+  "lastname": "Suarez",
+  "middlename": "Donato",
+  "course": "BSIT",
+  "year": "3"
+ },
+ {
+  "id": "2",
+  "firstname": "Jo Arman Ken",
+  "lastname": "Quiambao",
+  "middlename": "Middle Name",
+  "course": "BSIT",
+  "year": "3"
+ },
+ {
+  "id": "3",
+  "firstname": "Rayne Angelica",
+  "lastname": "Naval",
+  "middlename": "Middle Name",
+  "course": "BSIT",
+  "year": "3"
+ },
+ {
+  "id": "4",
+  "firstname": "Rocel Audrey",
+  "lastname": "Batara",
+  "middlename": "Middle Name",
+  "course": "MIT",
+  "year": "Year"
+ },
+ {
+  "id": "5",
+  "firstname": "Jericho",
+  "lastname": "Pineda",
+  "middlename": "Middle Name",
+  "course": "BSIT",
+  "year": "3"
+ },
+ {
+  "id": "6",
+  "firstname": "Nhizza",
+  "lastname": "Nueva",
+  "middlename": "Middle Name",
+  "course": "BSIT",
+  "year": "3"
+ },
+ {
+  "id": "7",
+  "firstname": "Nhizza",
+  "lastname": "Nueva",
+  "middlename": "Middle Name",
+  "course": "BSIT",
+  "year": "3"
+ }
+]

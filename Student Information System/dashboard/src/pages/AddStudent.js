@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import Button from '@mui/material/Button';
 
 const AddStudent = () => {
-    const [values, setValues] = useState({
+    const [students, setStudents] = useState({
         id: '',
         firstname: '',
         lastname: '',
@@ -21,14 +21,14 @@ const AddStudent = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(values)
+                body: JSON.stringify(students)
             })
 
             const result = await response.json()
-            console.log(result)
+            // console.log(result)
 
             if (result.success) {
-                setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
+                setStudents({ ...students, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
                 alert(result.message)
             } else {
                 alert('Failed to add student. Please try again')
@@ -45,7 +45,7 @@ const AddStudent = () => {
     const handleInputId = (e) => {
         try {
             const id = e.target.value
-            setValues({ ...values, id: id })
+            setStudents({ ...students, id: id })
         } catch (error) {
             console.log(error)
         }
@@ -54,7 +54,7 @@ const AddStudent = () => {
     const handleInputFirstname = (e) => {
         try {
             const firstname = e.target.value
-            setValues({ ...values, firstname: firstname })
+            setStudents({ ...students, firstname: firstname })
         } catch (error) {
             console.log(error)
         }
@@ -63,7 +63,7 @@ const AddStudent = () => {
     const handleInputLastname = (e) => {
         try {
             const lastname = e.target.value
-            setValues({ ...values, lastname: lastname })
+            setStudents({ ...students, lastname: lastname })
         } catch (error) {
             console.log(error)
         }
@@ -72,7 +72,7 @@ const AddStudent = () => {
     const handleInputMiddlename = (e) => {
         try {
             const middlename = e.target.value
-            setValues({ ...values, middlename: middlename })
+            setStudents({ ...students, middlename: middlename })
         } catch (error) {
             console.log(error)
         }
@@ -81,7 +81,7 @@ const AddStudent = () => {
     const handleInputCourse = (e) => {
         try {
             const course = e.target.value
-            setValues({ ...values, course: course })
+            setStudents({ ...students, course: course })
         } catch (error) {
             console.log(error)
         }
@@ -90,37 +90,11 @@ const AddStudent = () => {
     const handleInputYear = (e) => {
         try {
             const year = e.target.value
-            setValues({ ...values, year: year })
+            setStudents({ ...students, year: year })
         } catch (error) {
             console.log(error)
         }
     }
-
-//     const handleSubmit = (e) => {
-//         try {
-//             e.preventDefault()
-//             if (
-//                 values.id === '' ||
-//                 values.firstname === '' ||
-//                 values.lastname === '' ||
-//                 values.middlename === '' ||
-//                 values.course === '' ||
-//                 values.year === '') {
-//             } else {
-//                 console.log(`
-// ID Number: ${values.id}
-// Firstname: ${values.firstname}
-// Lastname: ${values.lastname}
-// Middlename: ${values.middlename}
-// Course: ${values.course}
-// Year: ${values.year}
-//         `)
-//                 // setValues({ ...values, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
-//             }
-//         } catch (error) {
-//             console.log(error)
-//         }
-//     }
 
     return (
         <>
@@ -134,42 +108,42 @@ const AddStudent = () => {
                     <TextField
 
                         inputMode='numeric'
-                        value={values.id}
+                        value={students.id}
                         onChange={handleInputId}
                         id="outlined-basic"
                         label="ID Number"
                         variant="outlined"
                         required />
                     <TextField
-                        value={values.firstname}
+                        value={students.firstname}
                         onChange={handleInputFirstname}
                         id="outlined-basic"
                         label="First Name"
                         variant="outlined"
                         required />
                     <TextField
-                        value={values.lastname}
+                        value={students.lastname}
                         onChange={handleInputLastname}
                         id="outlined-basic"
                         label="Last Name"
                         variant="outlined"
                         required />
                     <TextField
-                        value={values.middlename}
+                        value={students.middlename}
                         onChange={handleInputMiddlename}
                         id="outlined-basic"
                         label="Middle Name"
                         variant="outlined"
                         required />
                     <TextField
-                        value={values.course}
+                        value={students.course}
                         onChange={handleInputCourse}
                         id="outlined-basic"
                         label="Course"
                         variant="outlined"
                         required />
                     <TextField
-                        value={values.year}
+                        value={students.year}
                         onChange={handleInputYear}
                         id="outlined-basic"
                         label="Year"

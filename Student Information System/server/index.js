@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addstudent', (req, res) => {
-    const { id, lastname, firstname, middlename, course, year } = req.body
+    const students = req.body
 
     let existingData = []
     try {
@@ -22,13 +22,25 @@ app.post('/addstudent', (req, res) => {
         // res.json({ Error: error })
     }
 
-    existingData.push(id, lastname, firstname, middlename, course, year)
+    existingData.push(students)
 
-    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2))
+    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
     res.json({ success: true, message: 'Student added successfully' })
 
 })
 
+app.get('/viewstudents', (req, res) => {
+    try {
+        const students = JSON.parse(fs.readFileSync("students.json"))
+        res.json(students)
+    }
+    catch (error) {
+        console.error("Error loading student data", error)
+        res
+            .status(500)
+            .json({ error: "Internal Server Error" })
+    }
+})
 
 const port = 1337
 app.listen(port, () => {
