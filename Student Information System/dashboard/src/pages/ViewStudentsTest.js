@@ -42,14 +42,12 @@ const ViewStudentsTest = () => {
                                     columns={columns}
                                     initialState={{
                                         pagination: {
-                                            paginationModel: { page: 0, pageSize: 9 },
+                                            paginationModel: { page: 0, pageSize: 10 },
                                         },
                                     }}
                                     pageSizeOptions={[10, 15]}
                                     checkboxSelection
                                 />
-
-
                         </div>
                     </div>
                 </div>
