@@ -83,19 +83,6 @@ const ViewStudents = () => {
                                         <Button variant='contained' onClick={handleClose}>Close</Button>
                                     </Box>
                                 </Modal>
-
-                            {/* <Modal open={isOpen} onClose={handleClose}>
-                                <Box
-                                    sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: 'white', boxShadow: 24, p: 4 }}>
-                                    <h2
-                                        className='font-bold mb-9'
-                                    >
-                                        {student && `ID NUMBER ${student.id}`}
-
-                                    </h2>
-                                    <Button variant='contained' onClick={handleClose}>Close</Button>
-                                </Box>
-                            </Modal> */}
                         </div>
                     </div>
                 </div>
