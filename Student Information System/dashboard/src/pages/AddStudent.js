@@ -98,7 +98,7 @@ const AddStudent = () => {
 
     return (
         <>
-            <div className="w-full h-screen flex">
+            <div className="flex">
                 <Sidebar />
                 <form
                     className="h-full flex flex-col justify-center p-4 gap-4"
