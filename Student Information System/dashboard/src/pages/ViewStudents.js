@@ -74,7 +74,7 @@ const ViewStudents = () => {
                                 <Modal open={isOpen} onClose={handleClose}>
                                     <Box
                                         sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: 400, bgcolor: 'white', boxShadow: 24, p: 4 }}>
-                                        <h2 className='text-[100px]'>ID NUMBER: <span className='font-bold'>{student ? `${student.id}` : null}</span></h2>
+                                        <h2 className='text-[25px] mb-5'>ID NUMBER: <span className='font-bold'>{student ? `${student.id}` : null}</span></h2>
                                         <h2>LAST NAME: <span className='font-bold'>{student && `${student.lastname}`}</span></h2>
                                         <h2>FIRST NAME: <span className='font-bold'>{student && `${student.firstname}`}</span></h2>
                                         <h2>MIDDLE NAME: <span className='font-bold'>{student && `${student.middlename}`}</span></h2>
