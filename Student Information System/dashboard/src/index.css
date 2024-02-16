@@ -4,6 +4,23 @@
     font-family: 'Poppins', sans-serif;
 }
 
+::-webkit-scrollbar {
+    width: .5rem;
+    background: #000;
+   
+}
+
+::-webkit-scrollbar-thumb {
+    width: 3rem;
+    background: #222;
+    border-radius: 2rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #aeaeae;
+    
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
