@@ -42,6 +42,23 @@ app.get('/viewstudents', (req, res) => {
     }
 })
 
+app.post('/editstudent', (req, res) => {
+    const values = req.body
+
+    let existingData = []
+    try {
+        existingData = JSON.parse(fs.readFileSync('students.json'))
+    } catch (error) {
+        // res.json({ Error: error })
+    }
+
+    existingData.replace(values)
+
+    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
+    res.json({ success: true, message: 'Student added successfully' })
+
+})
+
 const port = 1337
 app.listen(port, () => {
     console.log(`Server running on ${port}`)
