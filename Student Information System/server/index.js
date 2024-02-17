@@ -43,21 +43,25 @@ app.get('/viewstudents', (req, res) => {
 })
 
 app.post('/editstudent', (req, res) => {
-    const values = req.body
+    const updatedStudent = req.body;
 
-    let existingData = []
     try {
-        existingData = JSON.parse(fs.readFileSync('students.json'))
+        let existingData = JSON.parse(fs.readFileSync('students.json'));
+        // Find the index of the student to be updated
+        const index = existingData.findIndex(student => student.id === updatedStudent.id);
+        if (index !== -1) {
+            // Update the student data at the found index
+            existingData[index] = updatedStudent;
+            fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1));
+            res.json({ success: true, message: 'Student updated successfully' });
+        } else {
+            res.status(404).json({ success: false, message: 'Student not found' });
+        }
     } catch (error) {
-        // res.json({ Error: error })
+        console.error("Error editing student data", error);
+        res.status(500).json({ error: "Internal Server Error" });
     }
-
-    existingData.replace(values)
-
-    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
-    res.json({ success: true, message: 'Student added successfully' })
-
-})
+});
 
 const port = 1337
 app.listen(port, () => {
