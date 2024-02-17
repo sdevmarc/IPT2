@@ -1,24 +1,24 @@
 [
  {
   "id": "1",
-  "firstname": "Angel Hamelton",
   "lastname": "Santiago",
+  "firstname": "Angel Hamelton",
   "middlename": "Yacapin",
   "course": "BSIT",
   "year": "3"
  },
  {
   "id": "2",
-  "firstname": "Angel Melbraei",
   "lastname": "Yacatiago",
+  "firstname": "Angel Melbraei",
   "middlename": "O",
   "course": "BSIT",
   "year": "3"
  },
  {
-  "id": "1",
-  "firstname": "Marc Edison ",
+  "id": "3",
   "lastname": "Suarez",
+  "firstname": "Marc Edison ",
   "middlename": "Donato",
   "course": "BSIT",
   "year": "3"
