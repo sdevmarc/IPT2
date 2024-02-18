@@ -54,9 +54,6 @@ function ViewStudents() {
             }
             )
             .catch(err => console.log(`Error: ${err}`))
-
-
-
     }
 
     function handleOnChangeId(e) {
