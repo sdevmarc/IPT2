@@ -44,17 +44,17 @@ function ViewStudents() {
         })
         setIsOpen(true)
     }
-    function handleClose() {
-        axios.post('http://localhost:1337/editstudent', values)
-            .then(() => {
-                alert('Edit Successful!')
-                setValues({ ...values, id: '', lastname: '', firstname: '', middlename: '', course: '', year: '' })
-                setIsOpen(false)
-                window.location.reload()
-            }
-            )
-            .catch(err => console.log(`Error: ${err}`))
-    }
+    // function handleClose() {
+    //     axios.post('http://localhost:1337/editstudent', values)
+    //         .then(() => {
+    //             alert('Edit Successful!')
+    //             setValues({ ...values, id: '', lastname: '', firstname: '', middlename: '', course: '', year: '' })
+    //             setIsOpen(false)
+    //             window.location.reload()
+    //         }
+    //         )
+    //         .catch(err => console.log(`Error: ${err}`))
+    // }
 
     function handleOnChangeId(e) {
         const id = e.target.value
