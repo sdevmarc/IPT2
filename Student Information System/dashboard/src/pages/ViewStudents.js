@@ -44,7 +44,7 @@ function ViewStudents() {
         })
         setIsOpen(true)
     }
-    function handleClose() {
+    function handleEdit() {
         axios.post('http://localhost:1337/editstudent', values)
             .then(() => {
                 alert('Edit Successful!')
@@ -54,6 +54,11 @@ function ViewStudents() {
             }
             )
             .catch(err => console.log(`Error: ${err}`))
+    }
+
+    function handleClose() {
+        setIsOpen(false)
+        // window.location.reload()
     }
 
     function handleOnChangeId(e) {
@@ -122,27 +127,31 @@ function ViewStudents() {
                                 </TableBody>
                             </Table>
 
-                            <Modal open={isOpen} onClose={handleClose}>
-                                <form onSubmit={handleClose}>
-                                    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-auto flex flex-col justify-start gap-4 w-[40rem] h-[40rem] bg-white p-10">
+                            <Modal open={isOpen} onClose={handleEdit}>
+                                <form onSubmit={handleEdit}>
+                                    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-auto flex flex-col justify-between gap-4 w-[40rem] h-[40rem] bg-white p-10">
                                         <div className="flex flex-col gap-3">
-                                            <TextField value={values.id} onChange={handleOnChangeId} label="ID Number" id="outlined-basic" variant="outlined" disabled/>
+                                            <TextField value={values.id} onChange={handleOnChangeId} label="ID Number" id="outlined-basic" variant="outlined" disabled />
                                             <TextField value={values.lastname} onChange={handleOnChangeLastname} label="Last Name" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.firstname} onChange={handleOnChangeFirstname} label="First Name" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.middlename} onChange={handleOnChangeMiddlename} label="Middle Name" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.course} onChange={handleOnChangeCourse} label="Course" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.year} onChange={handleOnChangeYear} label="Year" id="outlined-basic" variant="outlined" />
                                         </div>
-                                        <div className="flex flex-col gap-3">
-                                            {/* <h2 className='text-[25px] mb-5'>ID NUMBER: <span className='font-bold'>{student ? `${student.id}` : null}</span></h2> */}
+                                        {/* <div className="flex flex-col gap-3">
+                                            <h2 className='text-[25px] mb-5'>ID NUMBER: <span className='font-bold'>{student ? `${student.id}` : null}</span></h2>
                                             <h2>STUDENT ID: <span className='font-bold'>{values.id}</span></h2>
                                             <h2>LAST NAME: <span className='font-bold'>{values && `${values.lastname}`}</span></h2>
                                             <h2>FIRST NAME: <span className='font-bold'>{values && `${values.firstname}`}</span></h2>
                                             <h2>MIDDLE NAME: <span className='font-bold'>{values && `${values.middlename}`}</span></h2>
                                             <h2>COURSE: <span className='font-bold'>{values && `${values.course}`}</span></h2>
                                             <h2 className='mb-5'>YEAR: <span className='font-bold'>{values && `${values.year}`}</span></h2>
+                                        </div> */}
+                                        <div className='flex flex-col gap-5'>
+                                            <Button variant='contained' type='submit'>Edit</Button>
+                                            <Button variant='contained' onClick={handleClose}>Close</Button>
                                         </div>
-                                        <Button variant='contained' type='submit'>Close</Button>
+
                                     </div>
                                 </form>
                             </Modal>
