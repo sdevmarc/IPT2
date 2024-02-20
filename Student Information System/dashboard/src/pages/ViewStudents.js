@@ -44,17 +44,17 @@ function ViewStudents() {
         })
         setIsOpen(true)
     }
-    // function handleClose() {
-    //     axios.post('http://localhost:1337/editstudent', values)
-    //         .then(() => {
-    //             alert('Edit Successful!')
-    //             setValues({ ...values, id: '', lastname: '', firstname: '', middlename: '', course: '', year: '' })
-    //             setIsOpen(false)
-    //             window.location.reload()
-    //         }
-    //         )
-    //         .catch(err => console.log(`Error: ${err}`))
-    // }
+    function handleClose() {
+        axios.post('http://localhost:1337/editstudent', values)
+            .then(() => {
+                alert('Edit Successful!')
+                setValues({ ...values, id: '', lastname: '', firstname: '', middlename: '', course: '', year: '' })
+                setIsOpen(false)
+                window.location.reload()
+            }
+            )
+            .catch(err => console.log(`Error: ${err}`))
+    }
 
     function handleOnChangeId(e) {
         const id = e.target.value
@@ -126,7 +126,7 @@ function ViewStudents() {
                                 <form onSubmit={handleClose}>
                                     <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] overflow-auto flex flex-col justify-start gap-4 w-[40rem] h-[40rem] bg-white p-10">
                                         <div className="flex flex-col gap-3">
-                                            <TextField value={values.id} onChange={handleOnChangeId} label="ID Number" id="outlined-basic" variant="outlined" />
+                                            <TextField value={values.id} onChange={handleOnChangeId} label="ID Number" id="outlined-basic" variant="outlined" disabled/>
                                             <TextField value={values.lastname} onChange={handleOnChangeLastname} label="Last Name" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.firstname} onChange={handleOnChangeFirstname} label="First Name" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.middlename} onChange={handleOnChangeMiddlename} label="Middle Name" id="outlined-basic" variant="outlined" />
