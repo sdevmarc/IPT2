@@ -31,7 +31,9 @@ const AddStudent = () => {
                 setStudents({ ...students, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
                 alert(result.message)
             } else {
-                alert('Failed to add student. Please try again')
+                // alert('Failed to add student. Please try again')
+                console.log(result.message)
+                
             }
         } catch (error) {
             console.error('Error adding studentL ', error)
