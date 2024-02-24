@@ -13,20 +13,27 @@ app.get('/', (req, res) => {
 })
 
 app.post('/addstudent', (req, res) => {
-    const students = req.body
-
-    let existingData = []
     try {
-        existingData = JSON.parse(fs.readFileSync('students.json'))
+        const students = req.body
+        console.log(students)
+
+        if (isNaN(students.id) || students.id.length > 8) {
+            console.log('Not eligible')
+            res.json({ message: 'Errorasdasd' })
+        } else {
+            console.log('eligible')
+        }
+        // let existingData = []
+
+        // existingData = JSON.parse(fs.readFileSync('students.json'))
+
+        // existingData.push(students)
+
+        // fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
+        // res.json({ success: true, message: 'Student added successfully' })
     } catch (error) {
-        // res.json({ Error: error })
+        res.json({ Error: error })
     }
-
-    existingData.push(students)
-
-    fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
-    res.json({ success: true, message: 'Student added successfully' })
-
 })
 
 app.get('/viewstudents', (req, res) => {
