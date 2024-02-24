@@ -2,7 +2,7 @@
  {
   "id": "1",
   "lastname": "Santiagos",
-  "firstname": "Tite",
+  "firstname": "asdasd",
   "middlename": "Yacapin",
   "course": "BSITss",
   "year": "3"
@@ -19,8 +19,24 @@
   "id": "3",
   "lastname": "Suarez",
   "firstname": "Marc Edison ",
-  "middlename": "Donatosss",
-  "course": "BSITssssssaaa",
+  "middlename": "Donato",
+  "course": "BSIT",
   "year": "3"
+ },
+ {
+  "id": "8 Characters tas Integer only",
+  "firstname": "No special Characters",
+  "lastname": "No special characters",
+  "middlename": "No special characters",
+  "course": "No special characters",
+  "year": "1 to 5 as in year 1 to 5 ganern"
+ },
+ {
+  "id": "Required",
+  "firstname": "Required",
+  "lastname": "Required",
+  "middlename": "Not Required",
+  "course": "Required",
+  "year": "Required"
  }
 ]
