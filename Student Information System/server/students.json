@@ -1,58 +1,18 @@
 [
- {
-  "id": "1",
-  "lastname": "Santiagos",
-  "firstname": "asdasd",
-  "middlename": "Yacapin",
-  "course": "BSITss",
-  "year": "3"
- },
- {
-  "id": "2",
-  "lastname": "Yacatiago",
-  "firstname": "Angel Melbraei",
-  "middlename": "O",
-  "course": "BSIT",
-  "year": "3"
- },
- {
-  "id": "3",
-  "lastname": "Suarez",
-  "firstname": "Marc Edison ",
-  "middlename": "Donato",
-  "course": "BSIT",
-  "year": "3"
- },
- {
-  "id": "8 Characters tas Integer only",
-  "firstname": "No special Characters",
-  "lastname": "No special characters",
-  "middlename": "No special characters",
-  "course": "No special characters",
-  "year": "1 to 5 as in year 1 to 5 ganern"
- },
- {
-  "id": "Required",
-  "firstname": "Required",
-  "lastname": "Required",
-  "middlename": "Not Required",
-  "course": "Required",
-  "year": "Required"
- },
- {
-  "id": "wert",
-  "firstname": "ert",
-  "lastname": "wert",
-  "middlename": "wert",
-  "course": "ter",
-  "year": "qwer"
- },
- {
-  "id": "uiop",
-  "firstname": "uiop",
-  "lastname": "uiop",
-  "middlename": "uiopui",
-  "course": "op",
-  "year": "ppp"
- }
+  {
+    "id": "1",
+    "firstname": "asd",
+    "lastname": "ads",
+    "middlename": "asd",
+    "course": "ads",
+    "year": 3
+  },
+  {
+    "id": "2",
+    "firstname": "asd",
+    "lastname": "ads",
+    "middlename": "asd",
+    "course": "ads",
+    "year": 3
+  }
 ]
