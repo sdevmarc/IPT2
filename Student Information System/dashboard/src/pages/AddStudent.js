@@ -2,6 +2,10 @@ import React, { useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Sidebar from './Sidebar';
 import Button from '@mui/material/Button';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 const AddStudent = () => {
     const [students, setStudents] = useState({
@@ -12,6 +16,8 @@ const AddStudent = () => {
         course: '',
         year: ''
     })
+
+    const theyear = ['None', 1, 2, 3, 4, 5]
 
     const handleAddStudent = async (e) => {
         e.preventDefault()
@@ -32,17 +38,15 @@ const AddStudent = () => {
                 alert(result.message)
             } else {
                 // alert('Failed to add student. Please try again')
-                console.log(result.message)
-                
+                alert(result.message)
+                // console.log(result.message)
+
             }
         } catch (error) {
             console.error('Error adding studentL ', error)
             console.log(`Error: ${error}`)
         }
     }
-
-
-
 
     const handleInputId = (e) => {
         try {
@@ -136,7 +140,7 @@ const AddStudent = () => {
                         id="outlined-basic"
                         label="Middle Name"
                         variant="outlined"
-                        required />
+                    />
                     <TextField
                         value={students.course}
                         onChange={handleInputCourse}
@@ -144,13 +148,21 @@ const AddStudent = () => {
                         label="Course"
                         variant="outlined"
                         required />
-                    <TextField
-                        value={students.year}
-                        onChange={handleInputYear}
-                        id="outlined-basic"
-                        label="Year"
-                        variant="outlined"
-                        required />
+                    <FormControl fullWidth required>
+                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <Select
+                            labelId="demo-simple-select-label"
+                            id="demo-simple-select"
+                            value={students.year}
+                            label="Age"
+                            onChange={handleInputYear}
+
+                        >
+                            {theyear.map((item) => (
+                                <MenuItem key={item} value={item}>{item}</MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                     <Button
                         type='submit'
                         variant="contained"
