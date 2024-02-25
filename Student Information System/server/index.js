@@ -7,6 +7,7 @@ const cors = require('cors')
 
 
 app.use(cors())
+
 app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send('Hello, world!')
@@ -15,24 +16,48 @@ app.get('/', (req, res) => {
 app.post('/addstudent', (req, res) => {
     try {
         const students = req.body
-        console.log(students)
+        // console.log(students.id)
 
-        if (isNaN(students.id) || students.id.length > 8) {
-            console.log('Not eligible')
-            res.json({ message: 'Errorasdasd' })
-        } else {
-            console.log('eligible')
+
+        if (isNaN(students.id)) {
+            // console.log('Student ID must be a number')
+            res.json({ message: 'ID Number must be a number' })
         }
-        // let existingData = []
 
-        // existingData = JSON.parse(fs.readFileSync('students.json'))
+        if (students.id.length > 8) {
+            // console.log('Not eligible')
+            res.json({ message: 'ID Number should not exceed to 8 characters' })
+        }
 
-        // existingData.push(students)
+        if (!/^[a-zA-Z0-9\s]+$/.test(students.firstname) ||
+            !/^[a-zA-Z0-9\s]+$/.test(students.lastname) ||
+            !/^[a-zA-Z0-9\s]+$/.test(students.middlename) ||
+            !/^[a-zA-Z0-9\s]+$/.test(students.course)) {
+            return res.json({ message: 'Field should not have a special character' })
+        }
 
-        // fs.writeFileSync('students.json', JSON.stringify(existingData, null, 1))
-        // res.json({ success: true, message: 'Student added successfully' })
+        let existingData = []
+        try {
+            existingData = JSON.parse(fs.readFileSync('students.json'));
+
+        } catch (error) {
+            res.json({ message: error })
+        }
+
+        const index = existingData.find(item => item.id === students.id)
+        // console.log(index)
+
+        if (index) {
+            res.json({ message: 'Id Already Exists!' })
+        } else {
+            existingData.push(students)
+            fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2))
+            res.json({ success: true, message: 'Student added successfully' })
+        }
+
+        // Forda Edit to -> fs.writeFile('students.json', JSON.stringify(index));
     } catch (error) {
-        res.json({ Error: error })
+        res.json({ Error: `Srrver error: ${error}` })
     }
 })
 
@@ -54,7 +79,7 @@ app.post('/editstudent', (req, res) => {
 
     try {
         let existingData = JSON.parse(fs.readFileSync('students.json'));
-        // Find the index of the student to be updated
+
         const index = existingData.findIndex(student => student.id === updatedStudent.id);
         if (index !== -1) {
             // Update the student data at the found index
