@@ -96,8 +96,9 @@ function ViewStudents() {
                 <Sidebar />
                 <div className="w-[80%] h-screen flex flex-col p-5">
                     <div className="w-full h-full flex flex-col gap-5">
-                        <div className="w-full h-[20rem] flex flex-col gap-6">
-                            <h1 className='font-semibold text-[20px]'>View Students</h1>
+                    <h1 className='font-semibold text-[20px]'>View Students</h1>
+                        <div className="overflow-auto w-full h-full flex flex-col gap-6">
+                           
                             <Table className='border border-solid border-black'>
                                 <TableHead className='border border-solid border-black'>
                                     <TableRow>
