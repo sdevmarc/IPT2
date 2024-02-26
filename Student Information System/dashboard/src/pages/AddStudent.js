@@ -39,7 +39,7 @@ const AddStudent = () => {
             } else {
                 // alert('Failed to add student. Please try again')
                 alert(result.message)
-                // console.log(result.message) tite ni marc
+                // console.log(result.message) tite ni marc maliit
 
             }
         } catch (error) {
