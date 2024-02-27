@@ -16,8 +16,6 @@ app.get('/', (req, res) => {
 app.post('/addstudent', (req, res) => {
     try {
         const students = req.body
-        // console.log(students.id)
-
 
         if (isNaN(students.id)) {
             // console.log('Student ID must be a number')
