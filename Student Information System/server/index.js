@@ -55,7 +55,7 @@ app.post('/addstudent', (req, res) => {
             res.json({ success: true, message: 'Student added successfully' })
         }
 
-        // Forda Edit to -> fs.writeFile('students.json', JSON.stringify(index));
+        
     } catch (error) {
         res.json({ Error: `Srrver error: ${error}` })
     }
