@@ -45,7 +45,6 @@ app.post('/addstudent', (req, res) => {
         }
 
         const index = existingData.find(item => item.id === students.id)
-        // console.log(index)
 
         if (index) {
             res.json({ message: 'Id Already Exists!' })
