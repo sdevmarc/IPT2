@@ -23,7 +23,7 @@ app.post('/addstudent', (req, res) => {
         }
 
         if (students.id.length > 8) {
-            // console.log('Not eligible')
+            s
             res.json({ message: 'ID Number should not exceed to 8 characters' })
         }
 
