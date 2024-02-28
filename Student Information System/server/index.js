@@ -18,7 +18,7 @@ app.post('/addstudent', (req, res) => {
         const students = req.body
 
         if (isNaN(students.id)) {
-            // console.log('Student ID must be a number')
+          
             res.json({ message: 'ID Number must be a number' })
         }
 
