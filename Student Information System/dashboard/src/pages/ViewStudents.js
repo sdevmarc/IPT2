@@ -58,7 +58,7 @@ function ViewStudents() {
 
     function handleClose() {
         setIsOpen(false)
-        // window.location.reload()
+      
     }
 
     function handleOnChangeId(e) {
