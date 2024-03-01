@@ -91,6 +91,28 @@ app.post('/editstudent', (req, res) => {
     }
 });
 
+// Route to delete a student by ID using POST
+app.post('/deletestudent', (req, res) => {
+    const studentId = req.body.id;
+
+    try {
+        let existingData = JSON.parse(fs.readFileSync('students.json'));
+
+        const index = existingData.findIndex(student => student.id === studentId);
+        if (index !== -1) {
+            existingData.splice(index, 1);
+            fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2));
+            res.json({ success: true, message: 'Student deleted successfully' });
+        } else {
+            res.status(404).json({ success: false, message: 'Student not found' });
+        }
+    } catch (error) {
+        console.error("Error deleting student", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+
 const port = 1337
 app.listen(port, () => {
     console.log(`Server running on ${port}`)
