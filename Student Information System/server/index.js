@@ -1,31 +1,47 @@
 const express = require('express')
 const app = express()
+const mongoose = require('mongoose')
 
 const bodyParser = require('body-parser')
 const fs = require('fs')
 const cors = require('cors')
 
+const Users = require('./user.model')
+
+const connectDb = async () => {
+    try {
+        await mongoose.connect('mongodb://localhost:27017/ipt2')
+        console.log('Connected to the database!')
+    } catch (error) {
+        console.error('MongoDB connection failed:', error.message);
+        process.exit(1);
+    }
+}
 
 app.use(cors())
+
+connectDb()
 
 app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send('Hello, world!')
 })
 
+
+
 app.post('/addstudent', (req, res) => {
     try {
         const students = req.body
 
         if (isNaN(students.id)) {
-          
+
             res.json({ message: 'ID Number must be a number' })
         }
 
         if (students.id.length > 8) {
-            s
             res.json({ message: 'ID Number should not exceed to 8 characters' })
         }
+
 
         if (!/^[a-zA-Z0-9\s]+$/.test(students.firstname) ||
             !/^[a-zA-Z0-9\s]+$/.test(students.lastname) ||
@@ -52,7 +68,7 @@ app.post('/addstudent', (req, res) => {
             res.json({ success: true, message: 'Student added successfully' })
         }
 
-        
+
     } catch (error) {
         res.json({ Error: `Srrver error: ${error}` })
     }
@@ -91,6 +107,25 @@ app.post('/editstudent', (req, res) => {
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+app.post('/adduser', async (req, res) => {
+    try {
+        const values = req.body
+        await Users.create(values)
+        res.json({ success: true, message: 'User added successfully!' })
+    } catch (error) {
+        res.json({ success: false, message: `Add user error: ${error}` })
+    }
+})
+
+app.get('/viewuser', async (req, res) => {
+    try {
+        const data = await Users.find()
+        res.json({ success: true, data: data })
+    } catch (error) {
+        res.json({ success: false, message: `Error View User server: ${error}` })
+    }
+})
 
 const port = 1337
 app.listen(port, () => {

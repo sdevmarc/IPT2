@@ -17,6 +17,12 @@ const AddStudent = () => {
         year: ''
     })
 
+    const handleError = () => {
+        if(typeof String === students.firstname) {
+            alert("Tite")
+        }
+    }
+
     const theyear = ['None', 1, 2, 3, 4, 5]
 
     const handleAddStudent = async (e) => {
@@ -35,11 +41,12 @@ const AddStudent = () => {
 
             if (result.success) {
                 setStudents({ ...students, id: '', firstname: '', lastname: '', middlename: '', course: '', year: '' })
+                handleError()
                 alert(result.message)
+                
             } else {
                 // alert('Failed to add student. Please try again')
                 alert(result.message)
-                // console.log(result.message) tite ni marc maliit
 
             }
         } catch (error) {
@@ -112,7 +119,6 @@ const AddStudent = () => {
                 >
                     <h1 className='font-semibold  text-[20px]'>ADD STUDENT</h1>
                     <TextField
-
                         inputMode='numeric'
                         value={students.id}
                         onChange={handleInputId}
@@ -126,14 +132,16 @@ const AddStudent = () => {
                         id="outlined-basic"
                         label="First Name"
                         variant="outlined"
-                        required />
+                        required
+                        helperText />
                     <TextField
                         value={students.lastname}
                         onChange={handleInputLastname}
                         id="outlined-basic"
                         label="Last Name"
                         variant="outlined"
-                        required />
+                        required
+                         />
                     <TextField
                         value={students.middlename}
                         onChange={handleInputMiddlename}
@@ -149,7 +157,7 @@ const AddStudent = () => {
                         variant="outlined"
                         required />
                     <FormControl fullWidth required>
-                        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                        <InputLabel id="demo-simple-select-label">Year</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
