@@ -23,7 +23,7 @@ const ViewUsers = () => {
 
     const fetchData = async () => {
         try {
-            const res = await axios.get('http://localhost:1337/viewuser')
+            const res = await axios.get('http://localho`st:1337/`viewuser')
             // console.log(res.data)
             setUsers(res.data.data)
         } catch (error) {
@@ -42,7 +42,7 @@ const ViewUsers = () => {
     async function handleAdd() {
         const res = await axios.post('http://localhost:1337/adduser', values)
         if(res) {
-            console.log(`Add user: ${res}`)
+            console.log(`Add user: ${res.data}`)
         } else {
             console.log('Error adding')
         }
@@ -86,7 +86,7 @@ const ViewUsers = () => {
                 <div className="w-[80%] h-screen flex justify-start p-[2rem]">
                     <div className="w-full h-full flex flex-col gap-5">
                         <div className="flex justify-between">
-                            <h1 className='font-semibold text-[20px]'>View Students</h1>
+                            <h1 className='font-semibold text-[20px]'>View Users</h1>
                             <Button onClick={handleAddButton} variant='contained'>Add User</Button>
                         </div>
 
@@ -98,8 +98,7 @@ const ViewUsers = () => {
                                         <TableCell align='center'>Lastname</TableCell>
                                         <TableCell align='center'>Middlename</TableCell>
                                         <TableCell align='center'>Email</TableCell>
-                                        <TableCell align='center'>Password</TableCell>
-                                        {/* <TableCell align='center'></TableCell> */}
+                                        <TableCell align='center'></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -109,7 +108,9 @@ const ViewUsers = () => {
                                             <TableCell align='center'>{item.lastname}</TableCell>
                                             <TableCell align='center'>{item.middlename}</TableCell>
                                             <TableCell align='center'>{item.email}</TableCell>
-                                            <TableCell align='center'>{item.password}</TableCell>
+                                            <TableCell align='center'>
+                                                <Button variant="contained">EDIT</Button>
+                                            </TableCell>
                                         </TableRow>
                                     ))}
                                 </TableBody>

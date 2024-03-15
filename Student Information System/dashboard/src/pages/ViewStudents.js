@@ -58,7 +58,6 @@ function ViewStudents() {
 
     function handleClose() {
         setIsOpen(false)
-        // window.location.reload()
     }
 
     function handleOnChangeId(e) {
@@ -136,15 +135,6 @@ function ViewStudents() {
                                             <TextField value={values.course} onChange={handleOnChangeCourse} label="Course" id="outlined-basic" variant="outlined" />
                                             <TextField value={values.year} onChange={handleOnChangeYear} label="Year" id="outlined-basic" variant="outlined" />
                                         </div>
-                                        {/* <div className="flex flex-col gap-3">
-                                            <h2 className='text-[25px] mb-5'>ID NUMBER: <span className='font-bold'>{student ? `${student.id}` : null}</span></h2>
-                                            <h2>STUDENT ID: <span className='font-bold'>{values.id}</span></h2>
-                                            <h2>LAST NAME: <span className='font-bold'>{values && `${values.lastname}`}</span></h2>
-                                            <h2>FIRST NAME: <span className='font-bold'>{values && `${values.firstname}`}</span></h2>
-                                            <h2>MIDDLE NAME: <span className='font-bold'>{values && `${values.middlename}`}</span></h2>
-                                            <h2>COURSE: <span className='font-bold'>{values && `${values.course}`}</span></h2>
-                                            <h2 className='mb-5'>YEAR: <span className='font-bold'>{values && `${values.year}`}</span></h2>
-                                        </div> */}
                                         <div className='flex flex-col gap-5'>
                                             <Button variant='contained' type='submit'>Edit</Button>
                                             <Button variant='contained' onClick={handleClose}>Close</Button>
