@@ -63,8 +63,6 @@ const ViewUsers = () => {
 
     }
 
-
-
     async function handleAdd() {
         const res = await axios.post('http://localhost:1337/adduser', values)
 
@@ -75,7 +73,6 @@ const ViewUsers = () => {
         } else {
             alert(`Error frontend: ${res.data.message}`)
         }
-
     }
 
     function handleAddButton() {
