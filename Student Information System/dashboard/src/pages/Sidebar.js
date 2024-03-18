@@ -12,8 +12,8 @@ const Sidebar = () => {
             { id: 1, link: '/', icon: <HomeIcon />, name: "Home" },
             { id: 2, link: '/addstudent', icon: <InfoIcon />, name: "Add Student" },
             { id: 3, link: '/demo', icon: <CodeIcon />, name: "Demo" },
-            { id: 4, link: '/viewstudents', icon: <PersonIcon />, name: "View Students" }
-            // { id: 5, link: '/viewstudentstest', icon: <PersonIcon />, name: "View Students DataGrid" },
+            { id: 4, link: '/viewstudents', icon: <PersonIcon />, name: "View Students" },
+            { id: 5, link: '/viewusers', icon: <PersonIcon />, name: "View Users" }
         ]
     return (
         <>

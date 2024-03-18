@@ -86,9 +86,6 @@ function ViewStudents() {
         setValues({ ...values, year: year })
     }
 
-
-
-
     return (
         <>
             <div className="flex">
