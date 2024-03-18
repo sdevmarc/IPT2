@@ -42,7 +42,6 @@ app.post('/addstudent', (req, res) => {
             res.json({ message: 'ID Number should not exceed to 8 characters' })
         }
 
-
         if (!/^[a-zA-Z0-9\s]+$/.test(students.firstname) ||
             !/^[a-zA-Z0-9\s]+$/.test(students.lastname) ||
             !/^[a-zA-Z0-9\s]+$/.test(students.middlename) ||
@@ -124,6 +123,18 @@ app.get('/viewuser', async (req, res) => {
         res.json({ success: true, data: data })
     } catch (error) {
         res.json({ success: false, message: `Error View User server: ${error}` })
+    }
+})
+
+app.post('/edituser', async (req, res) => {
+    try {
+        const data = req.body
+
+       await Users.findOneAndUpdate({ email: data.email }, data, { new: true });
+       res.json({ success: true, message: 'Edit user successfully!' })
+
+    } catch (error) {
+        res.json({ success: false, message: `Error Edit User server: ${error}` })
     }
 })
 
