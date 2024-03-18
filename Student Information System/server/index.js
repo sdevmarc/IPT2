@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const fs = require('fs')
 const cors = require('cors')
 
+
 const Users = require('./user.model')
 
 const connectDb = async () => {
@@ -17,6 +18,7 @@ const connectDb = async () => {
         process.exit(1);
     }
 }
+
 
 app.use(cors())
 
@@ -137,6 +139,28 @@ app.post('/edituser', async (req, res) => {
         res.json({ success: false, message: `Error Edit User server: ${error}` })
     }
 })
+
+// Route to delete a student by ID using POST
+app.post('/deletestudent', (req, res) => {
+    const studentId = req.body.id;
+
+    try {
+        let existingData = JSON.parse(fs.readFileSync('students.json'));
+
+        const index = existingData.findIndex(student => student.id === studentId);
+        if (index !== -1) {
+            existingData.splice(index, 1);
+            fs.writeFileSync('students.json', JSON.stringify(existingData, null, 2));
+            res.json({ success: true, message: 'Student deleted successfully' });
+        } else {
+            res.status(404).json({ success: false, message: 'Student not found' });
+        }
+    } catch (error) {
+        console.error("Error deleting student", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
 
 const port = 1337
 app.listen(port, () => {
